@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-indigo-200 min-h-screen flex items-center justify-center">
+    <div class="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-700 text-center mb-6">Create a New Quiz</h2>
+        <form action="/create-quiz" method="POST">
+            <!-- Course Selection -->
+            <div class="mb-6">
+                <label for="course" class="block text-sm font-bold text-gray-700">Select Course</label>
+                <select id="course" name="course" 
+                        class="mt-3 w-2/3 p-3 rounded-md bg-blue-100 border-blue-300 focus:ring-2 focus:ring-blue-500 text-gray-800 sm:text-sm">
+                    <option value="" disabled selected>Choose a Course</option>
+                    <option value="course1">Web Development</option>
+                    <option value="course2">Data Science</option>
+                    <option value="course3">Programming Fundamentals</option>
+                </select>
+            </div>
+
+            <!-- Topic Selection -->
+            <div class="mb-6">
+                <label for="topic" class="block text-sm font-bold text-gray-700">Select Topic</label>
+                <select id="topic" name="topic" 
+                        class="mt-3 w-2/3 p-3 rounded-md bg-blue-100 border-blue-300 focus:ring-2 focus:ring-blue-500 text-gray-800 sm:text-sm">
+                    <option value="" disabled selected>Choose a Topic</option>
+                    <option value="topic1">HTML Basics</option>
+                    <option value="topic2">CSS Styling</option>
+                    <option value="topic3">JavaScript Functions</option>
+                </select>
+            </div>
+
+            <!-- Question -->
+            <div class="mb-6">
+                <label for="question" class="block text-sm font-bold text-gray-700">Quiz Question</label>
+                <textarea id="question" name="question" rows="2" 
+                          class="mt-3 w-full p-3 rounded-md bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-indigo-500 sm:text-sm text-gray-800"
+                          placeholder="Enter the quiz question here" required></textarea>
+            </div>
+
+            <!-- Options -->
+            <div class="mb-6">
+                <label class="block text-sm font-bold text-gray-700 mb-3">Options</label>
+
+                <!-- Option 1 -->
+                <div class="flex items-center mb-4">
+                    <button type="button" data-option="1"
+                            class="correct-btn h-8 w-8 bg-green-200 hover:bg-green-300 focus:ring-2 focus:ring-green-500 rounded-full flex items-center justify-center">
+                        ✔
+                    </button>
+                    <input type="text" id="option-1" name="option_1" 
+                           class="ml-3 w-full p-2 rounded-md bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-indigo-500 sm:text-sm text-gray-800"
+                           placeholder="Option 1" required>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="flex items-center mb-4">
+                    <button type="button" data-option="2"
+                            class="correct-btn h-8 w-8 bg-green-200 hover:bg-green-300 focus:ring-2 focus:ring-green-500 rounded-full flex items-center justify-center">
+                        ✔
+                    </button>
+                    <input type="text" id="option-2" name="option_2" 
+                           class="ml-3 w-full p-2 rounded-md bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-indigo-500 sm:text-sm text-gray-800"
+                           placeholder="Option 2" required>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="flex items-center mb-4">
+                    <button type="button" data-option="3"
+                            class="correct-btn h-8 w-8 bg-green-200 hover:bg-green-300 focus:ring-2 focus:ring-green-500 rounded-full flex items-center justify-center">
+                        ✔
+                    </button>
+                    <input type="text" id="option-3" name="option_3" 
+                           class="ml-3 w-full p-2 rounded-md bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-indigo-500 sm:text-sm text-gray-800"
+                           placeholder="Option 3" required>
+                </div>
+
+                <!-- Option 4 -->
+                <div class="flex items-center">
+                    <button type="button" data-option="4"
+                            class="correct-btn h-8 w-8 bg-green-200 hover:bg-green-300 focus:ring-2 focus:ring-green-500 rounded-full flex items-center justify-center">
+                        ✔
+                    </button>
+                    <input type="text" id="option-4" name="option_4" 
+                           class="ml-3 w-full p-2 rounded-md bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-indigo-500 sm:text-sm text-gray-800"
+                           placeholder="Option 4" required>
+                </div>
+            </div>
+
+            <!-- Correct Answer Description -->
+            <div class="mb-8">
+                <label for="correct-description" class="block text-sm font-bold text-gray-700">Correct Answer Description</label>
+                <textarea id="correct-description" name="correct_description" rows="3"
+                          class="mt-3 w-full p-3 rounded-md bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-blue-500 sm:text-sm text-gray-800"
+                          placeholder="Explain why the correct answer is right"></textarea>
+                <p id="correct-answer-display" class="text-sm text-gray-500 mt-2"></p>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit"
+                        class="w-full bg-indigo-600 text-white font-bold py-2 rounded-md shadow-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500">
+                    Submit Quiz
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const correctButtons = document.querySelectorAll('.correct-btn');
+        const descriptionBox = document.getElementById('correct-description');
+        const correctAnswerDisplay = document.getElementById('correct-answer-display');
+
+        let correctOption = null;
+
+        correctButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Reset other buttons' styles
+                correctButtons.forEach(btn => btn.classList.remove('bg-green-500', 'text-white'));
+                // Highlight the clicked button
+                button.classList.add('bg-green-500', 'text-white');
+                // Update correct option
+                correctOption = button.dataset.option;
+                const selectedOptionInput = document.getElementById(`option-${correctOption}`);
+                const selectedOptionText = selectedOptionInput.value;
+                // Update description display
+                descriptionBox.value = `Correct Answer: ${selectedOptionText || 'Option ' + correctOption}`;
+                correctAnswerDisplay.textContent = `Selected: Option ${correctOption}`;
+            });
+        });
+    </script>
+</body>
+</html>
