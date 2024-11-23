@@ -1,7 +1,7 @@
 
-import CoursesPage from '@/components/CoursesPage';
-import Features from '@/components/Features';
-import Footer from '@/components/Footer'
+import CoursesPage from '@/components/Landingpage/CoursesPage';
+import Features from '@/components/Landingpage/Features';
+import Footer from '@/components/Landingpage/Footer'
 import React from 'react'
 
  const page = () => {
