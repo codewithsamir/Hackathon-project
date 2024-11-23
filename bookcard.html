@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore - User View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .book-thumbnail {
+            transition: transform 0.3s ease;
+        }
+        .book-thumbnail:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="max-w-6xl mx-auto p-6">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-8">Bookstore - Available Books</h1>
+
+        <!-- Book List -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="userBookList">
+            <!-- User Book Card (Generated Dynamically) -->
+        </div>
+    </div>
+
+    <!-- Modal for Payment Prompt -->
+    <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Select Payment Method</h2>
+            <div class="mb-4">
+                <button onclick="payWithEsewa()" class="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Pay with eSewa</button>
+                <button onclick="payWithKhalti()" class="w-full py-2 mt-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">Pay with Khalti</button>
+            </div>
+            <button onclick="closePaymentModal()" class="w-full py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample books array with price, discount, and other details
+        const books = [
+            {
+                name: "The Great Gatsby",
+                author: "F. Scott Fitzgerald",
+                description: "A novel set in the Jazz Age that explores the themes of decadence, idealism, resistance to change, social upheaval, and excess.",
+                rating: 4.7,
+                price: 500,
+                discount: 20, // Discount in percentage
+                pdfUrl: "https://example.com/gatsby.pdf",
+                thumbnailUrl: "https://example.com/gatsby-thumbnail.jpg"
+            },
+            {
+                name: "1984",
+                author: "George Orwell",
+                description: "A dystopian novel set in a totalitarian society ruled by Big Brother, exploring themes of surveillance, censorship, and individual freedom.",
+                rating: 4.5,
+                price: 350,
+                discount: 10,
+                pdfUrl: "https://example.com/1984.pdf",
+                thumbnailUrl: "https://example.com/1984-thumbnail.jpg"
+            },
+            // Add more books here
+        ];
+
+        // Function to create book card for the user
+        const userBookList = document.getElementById('userBookList');
+
+        books.forEach(book => {
+            const bookCard = document.createElement('div');
+            bookCard.className = 'book-card border rounded-lg shadow-md p-4 bg-white transition-transform';
+
+            // Calculate discount amount and final price
+            const discountAmount = (book.price * book.discount / 100).toFixed(2);
+            const finalPrice = (book.price - book.price * book.discount / 100).toFixed(2);
+
+            // Create book card HTML
+            bookCard.innerHTML = `
+                <img src="${book.thumbnailUrl}" alt="Thumbnail" class="book-thumbnail w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold text-gray-800 text-center">${book.name}</h3>
+                <p class="text-sm text-gray-600 text-center">By: ${book.author}</p>
+                <p class="text-sm text-gray-600 text-center mt-2">${book.description}</p>
+                <div class="mt-4 text-center">
+                    <p class="text-lg font-semibold text-gray-900 line-through">₹${book.price}</p>
+                    <p class="text-md text-red-600">Discount: ₹${discountAmount}</p>
+                    <p class="text-xl font-semibold text-green-600">Price After Discount: ₹${finalPrice}</p>
+                </div>
+                <button onclick="openPaymentModal('${book.pdfUrl}')" class="mt-4 py-2 px-4 bg-indigo-600 text-white font-medium text-sm rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 flex items-center justify-center space-x-2">
+                    <i class="fas fa-download"></i>
+                    <span>Download PDF</span>
+                </button>
+            `;
+
+            // Add book card to the user book list
+            userBookList.appendChild(bookCard);
+        });
+
+        // Function to open payment modal
+        function openPaymentModal(pdfUrl) {
+            document.getElementById('paymentModal').classList.remove('hidden');
+            // Store the PDF URL for later use after successful payment
+            localStorage.setItem('pdfUrl', pdfUrl);
+        }
+
+        // Function to close the payment modal
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+        }
+
+        // Simulate eSewa payment
+        function payWithEsewa() {
+            alert("Payment successful with eSewa! Redirecting to download...");
+            processPaymentSuccess();
+        }
+
+        // Simulate Khalti payment
+        function payWithKhalti() {
+            alert("Payment successful with Khalti! Redirecting to download...");
+            processPaymentSuccess();
+        }
+
+        // Function to process payment success
+        function processPaymentSuccess() {
+            const pdfUrl = localStorage.getItem('pdfUrl');
+            window.location.href = pdfUrl; // Redirect to the PDF URL after payment
+        }
+    </script>
+</body>
+</html>
