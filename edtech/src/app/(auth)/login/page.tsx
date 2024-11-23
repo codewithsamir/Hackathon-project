@@ -1,6 +1,7 @@
 
-import Headers from "@/components/Header";
-import  Box from "@/components/Card";
+import Headers from "@/components/Landingpage/Header";
+import  Cards from "@/components/Landingpage/Card";
+import  Course from "@/components/Landingpage/Course";
 
 const page = () => {
   return (
@@ -10,7 +11,8 @@ const page = () => {
 <Headers />
 
 {/* Box */}
-{<Box/>}
+{<Cards/>}
+<Course/>
 
 </div>
 
