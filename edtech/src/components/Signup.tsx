@@ -1,9 +1,55 @@
-import React from "react";
+"use client"; // Add this line at the top for client-side rendering
+
+import React, { useState } from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc"; // Google Icon
 
-
 const Signup = () => {
+  // State variables for form inputs
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+
+
+    // Validation logic
+    if (!fullName || !email || !password) {
+      setError("All fields are required.");
+      return;
+    }
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long.");
+      return;
+    }
+
+    // Form is valid; process the data
+    setError(""); // Clear any errors
+    console.log("Form Submitted:", { fullName, email, password });
+    alert("Signup successful!");
+  };
+
+ 
+  // Validate email using a regex pattern
+  const validateEmail = (email: string) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  // Handle Google signup click
+  const handleGoogleSignup = () => {
+    alert("Google signup is not implemented yet.");
+    console.log("Google Signup Clicked");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-300 flex items-center justify-center p-5">
       <div className="w-full max-w-sm bg-white rounded-lg shadow-lg p-6 sm:p-8">
@@ -12,14 +58,23 @@ const Signup = () => {
           Create Your Account
         </h1>
 
+        {/* Error Message */}
+        {error && (
+          <div className="bg-red-100 text-red-700 py-2 px-4 rounded-lg mb-4">
+            {error}
+          </div>
+        )}
+
         {/* Signup Form */}
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Full Name Field */}
           <div className="relative">
             <FaUser className="absolute left-3 top-3 text-gray-400" />
             <input
               type="text"
               placeholder="Full Name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
               className="w-full pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -30,6 +85,8 @@ const Signup = () => {
             <input
               type="email"
               placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -40,6 +97,8 @@ const Signup = () => {
             <input
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -63,12 +122,13 @@ const Signup = () => {
         {/* Social Signup */}
         <div className="flex flex-col space-y-4">
           {/* Google Signup */}
-          <button className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium transition duration-300">
+          <button
+            onClick={handleGoogleSignup}
+            className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium transition duration-300"
+          >
             <FcGoogle size={24} className="mr-3" />
             Sign up with Google
           </button>
-
-      
         </div>
 
         {/* Footer */}
