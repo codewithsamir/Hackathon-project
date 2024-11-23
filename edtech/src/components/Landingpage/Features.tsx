@@ -38,8 +38,8 @@ const Features = () => {
 
   return (
     <div className="bg-gray-50 py-10">
-      <h2 className="text-center text-2xl font-semibold mb-10 ">
-        Key Features That Drive Your Success
+      <h2 className="text-center text-3xl font-bold mb-10 ">
+      Key Features That Drive Your Success
       </h2>
       <div className="flex flex-wrap justify-center gap-8 pl-4 pr-4">
         {features.map((feature, index) => {

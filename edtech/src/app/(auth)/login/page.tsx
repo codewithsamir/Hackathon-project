@@ -17,6 +17,8 @@ import React from 'react'
     {/* Footer page */}
         <Footer/>
 
+{/* signup page */}
+
 
    </div>
   )
