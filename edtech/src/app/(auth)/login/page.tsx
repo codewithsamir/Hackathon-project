@@ -1,15 +1,18 @@
 
 import Headers from "@/components/Header";
+import  Box from "@/components/Card";
 
 const page = () => {
   return (
 
-    // <section className='bg-red-500 w-32 h-32'>
+<div>
+{/* footer */}
 <Headers />
 
+{/* Box */}
+{<Box/>}
 
-    // </section>
-
+</div>
 
     
   )
