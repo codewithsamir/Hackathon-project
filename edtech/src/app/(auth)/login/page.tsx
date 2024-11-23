@@ -1,12 +1,24 @@
 
+import CoursesPage from '@/components/CoursesPage';
+import Features from '@/components/Features';
 import Footer from '@/components/Footer'
-// import Signup from '@/components/Signup'
 import React from 'react'
 
  const page = () => {
   return (
-    <Footer/>
-    // <Signup/>
+   <div>
+
+        {/* Signup page */}
+        <Features/>
+
+         {/* Courses page */}
+         <CoursesPage/>
+
+    {/* Footer page */}
+        <Footer/>
+
+
+   </div>
   )
 }
 
