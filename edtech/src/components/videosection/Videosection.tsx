@@ -2,41 +2,55 @@
 import React, { useState } from "react";
 import { Box, Card } from "@mui/material";
 import SyllabusList from "./Syllabuslist";
-import { syllabusdata } from "@/utility/sylabus";
+import { syllabusdata } from "@/utility/sylabus";  // Assuming syllabusdata is imported from utility
+import Videotabs from "./Videotabs";
 
 const VideoSection = () => {
-  // State to manage the currently playing video
   const [currentVideo, setCurrentVideo] = useState(
     "https://www.example.com/default-video.mp4"
   );
-
-  // Syllabus data with topics and subtopics
+  const [selectedSyllabus, setSelectedSyllabus] = useState(syllabusdata[0] || {}); // Default to the first topic
   const [syllabus, setSyllabus] = useState(syllabusdata);
 
   return (
-    <Box sx={{ display: "flex", gap: 4, p: 4 }}>
-     {/* Video Player */}
-     <Box
+    <Box sx={{ display: "flex", gap: 4, p: 4, height: "100vh", width: "100%" }}>
+      {/* Video Player Container */}
+      <Box
         sx={{
-          flex: 2,
-          position: "sticky",
-          top: 102,  // Distance from the top of the viewport to keep the video sticky
-          maxHeight: "calc(100vh - 64px)",  // Prevents overlapping the syllabus part when scrolling
-          overflow: "hidden", // Ensures no overflow from the video player
+          position: "relative",
+          width: "calc(100% - 400px)",
+          overflowY: "auto",
+          maxHeight: "calc(100vh - 64px)",
         }}
-        className="video-container"
+        className="custom-scroll"
       >
-        <Card>
+        <Card sx={{ mb: 2 }}>
           <video
             src={currentVideo}
             controls
             style={{ width: "100%", height: "auto" }}
           />
         </Card>
+        <Videotabs syllabus={selectedSyllabus} />
       </Box>
 
-      {/* Syllabus */}
-      <SyllabusList syllabus={syllabus} setSyllabus={setSyllabus} setCurrentVideo={setCurrentVideo} />
+      {/* Syllabus List Container */}
+      <Box
+        sx={{
+          flex: 1,
+          maxHeight: "calc(100vh - 64px)",
+          overflowY: "auto",
+          borderLeft: "2px solid #ccc",
+          width: "300px",
+        }}
+        className="custom-scroll"
+      >
+        <SyllabusList
+          syllabus={syllabus}
+          setSelectedSyllabus={setSelectedSyllabus}
+          setCurrentVideo={setCurrentVideo}
+        />
+      </Box>
     </Box>
   );
 };

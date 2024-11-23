@@ -1,5 +1,5 @@
 "use client";
-import { questions } from "@/utility/quizdata";
+
 import React, { useState } from "react";
 
 // Define types for the questions and answers
@@ -10,8 +10,9 @@ interface Question {
   explanation: string;
 }
 
-const Mocktest = () => {
+const Mocktest = ({questions}:any) => {
   // Sample quiz questions with explanations
+ console.log(questions);
  
 
   // State for current question and selected answer
@@ -47,7 +48,7 @@ const Mocktest = () => {
   };
 
   return (
-    <div className="flex flex-col items-center h-screen bg-gray-100 p-4">
+    <div className="flex flex-col items-center h-screen  p-4">
       {currentQuestionIndex < questions.length ? (
         <div className="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
           {/* Question */}
@@ -57,7 +58,7 @@ const Mocktest = () => {
 
           {/* Options */}
           <div className="grid grid-cols-2 gap-4">
-            {currentQuestion.options.map((option, index) => (
+            {currentQuestion.options.map((option:any, index:any) => (
               <button
                 key={index}
                 className={`p-4 rounded-lg font-medium text-center border-2 ${

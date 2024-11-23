@@ -38,7 +38,7 @@ const MockTestPage = () => {
 
   return (
     <Dashboardlayout>
-    <div className="w-full h-full p-6 bg-gray-100">
+    <div className="w-full h-full p-6">
       {/* Page Header */}
       <h1 className="text-3xl font-bold text-center mb-8">Mock Test Portal</h1>
 

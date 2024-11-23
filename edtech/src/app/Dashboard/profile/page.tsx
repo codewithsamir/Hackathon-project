@@ -18,7 +18,7 @@ import Dashboardlayout from '@/components/Dashboard/Dashboardlayout';
 const ProfilePage = () => {
   return (
     <Dashboardlayout>
-    <Box className="w-full h-full bg-gray-100">
+    <Box className="w-full h-full ">
       {/* Breadcrumb Navigation */}
       {/* <Container maxWidth="lg" className="py-4">
         <Breadcrumbs aria-label="breadcrumb">

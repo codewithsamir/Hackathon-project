@@ -28,7 +28,7 @@ interface Topic {
   subtopics: Subtopic[];
 }
 
-const SyllabusList = ({syllabus,setSyllabus,setCurrentVideo}:any) => {
+const SyllabusList = ({syllabus,setSyllabus,setCurrentVideo,setSelectedSyllabus}:any) => {
   // Sample syllabus data
 //   const [syllabus, setSyllabus] = useState<Topic[]>(syllabusdata);
 
@@ -65,7 +65,7 @@ const SyllabusList = ({syllabus,setSyllabus,setCurrentVideo}:any) => {
   };
 
   return (
-    <Box sx={{ flex: 1 }}>
+    <Box sx={{ flex: 1}}>
       <Card>
         <CardContent>
           <Typography variant="h6" gutterBottom>
@@ -134,7 +134,9 @@ const SyllabusList = ({syllabus,setSyllabus,setCurrentVideo}:any) => {
                           )}
                         </IconButton>
                         <ListItemButton
-                          onClick={() => setCurrentVideo(subtopic.url)}
+                          onClick={() => {
+                            setSelectedSyllabus(topic);
+                            setCurrentVideo(subtopic.url)}}
                           sx={{
                             flex: 1,
                             color: subtopic.completed ? "#4caf50" : "inherit",

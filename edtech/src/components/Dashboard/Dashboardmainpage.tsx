@@ -6,7 +6,7 @@ import "tailwindcss/tailwind.css";
 
 const Dashboardmainpage = () => {
   return (
-    <Container className="w-full h-full p-4">
+    <Container className="w-full h-full p-4 ">
       <Grid container spacing={4} className="w-full">
         {/* Card 1: Courses Completed */}
         <Grid item md={4}>

@@ -6,7 +6,7 @@ const page = () => {
   return (
 
     <Dashboardlayout>
-    <div className="w-full  h-full " style={{width:'calc(100% - 300px)'}}>
+    <div className="w-full  h-full " >
         <Dashboardmainpage/>
     </div>
     </Dashboardlayout>

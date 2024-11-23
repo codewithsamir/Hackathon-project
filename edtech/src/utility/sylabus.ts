@@ -1,154 +1,119 @@
-export const syllabusdata= [
-    {
-      "id": 1,
-      "title": "Introduction to React",
-      "subtopics": [
-        { "id": 101, "title": "What is React?", "url": "https://www.example.com/video1.mp4", "completed": false },
-        { "id": 102, "title": "React Basics", "url": "https://www.example.com/video2.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Advanced React",
-      "subtopics": [
-        { "id": 201, "title": "React Hooks", "url": "https://www.example.com/video3.mp4", "completed": false },
-        { "id": 202, "title": "Context API", "url": "https://www.example.com/video4.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "React Router",
-      "subtopics": [
-        { "id": 301, "title": "Setting up React Router", "url": "https://www.example.com/video5.mp4", "completed": false },
-        { "id": 302, "title": "Nested Routes", "url": "https://www.example.com/video6.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "State Management in React",
-      "subtopics": [
-        { "id": 401, "title": "useState Hook", "url": "https://www.example.com/video7.mp4", "completed": false },
-        { "id": 402, "title": "useReducer Hook", "url": "https://www.example.com/video8.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Handling Forms in React",
-      "subtopics": [
-        { "id": 501, "title": "Controlled Components", "url": "https://www.example.com/video9.mp4", "completed": false },
-        { "id": 502, "title": "Uncontrolled Components", "url": "https://www.example.com/video10.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 6,
-      "title": "React Component Lifecycle",
-      "subtopics": [
-        { "id": 601, "title": "Component Lifecycle Methods", "url": "https://www.example.com/video11.mp4", "completed": false },
-        { "id": 602, "title": "useEffect Hook", "url": "https://www.example.com/video12.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 7,
-      "title": "Styled Components in React",
-      "subtopics": [
-        { "id": 701, "title": "Introduction to Styled Components", "url": "https://www.example.com/video13.mp4", "completed": false },
-        { "id": 702, "title": "Styled Components with Props", "url": "https://www.example.com/video14.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 8,
-      "title": "React Context API",
-      "subtopics": [
-        { "id": 801, "title": "Creating and Using Context", "url": "https://www.example.com/video15.mp4", "completed": false },
-        { "id": 802, "title": "Context Consumer", "url": "https://www.example.com/video16.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 9,
-      "title": "React and Redux",
-      "subtopics": [
-        { "id": 901, "title": "Introduction to Redux", "url": "https://www.example.com/video17.mp4", "completed": false },
-        { "id": 902, "title": "Redux Thunk for Async Actions", "url": "https://www.example.com/video18.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 10,
-      "title": "Testing in React",
-      "subtopics": [
-        { "id": 1001, "title": "React Testing Library", "url": "https://www.example.com/video19.mp4", "completed": false },
-        { "id": 1002, "title": "Jest for Unit Testing", "url": "https://www.example.com/video20.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 11,
-      "title": "React and TypeScript",
-      "subtopics": [
-        { "id": 1101, "title": "Using TypeScript with React", "url": "https://www.example.com/video21.mp4", "completed": false },
-        { "id": 1102, "title": "Props and State in TypeScript", "url": "https://www.example.com/video22.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 12,
-      "title": "Server-Side Rendering with React",
-      "subtopics": [
-        { "id": 1201, "title": "Introduction to SSR", "url": "https://www.example.com/video23.mp4", "completed": false },
-        { "id": 1202, "title": "Setting Up SSR in Next.js", "url": "https://www.example.com/video24.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 13,
-      "title": "React and Firebase",
-      "subtopics": [
-        { "id": 1301, "title": "Setting Up Firebase", "url": "https://www.example.com/video25.mp4", "completed": false },
-        { "id": 1302, "title": "Firebase Authentication", "url": "https://www.example.com/video26.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 14,
-      "title": "React and GraphQL",
-      "subtopics": [
-        { "id": 1401, "title": "Introduction to GraphQL", "url": "https://www.example.com/video27.mp4", "completed": false },
-        { "id": 1402, "title": "Using Apollo Client", "url": "https://www.example.com/video28.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 15,
-      "title": "Advanced State Management in React",
-      "subtopics": [
-        { "id": 1501, "title": "React Context API vs Redux", "url": "https://www.example.com/video29.mp4", "completed": false },
-        { "id": 1502, "title": "Using Zustand for State Management", "url": "https://www.example.com/video30.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 16,
-      "title": "React Performance Optimization",
-      "subtopics": [
-        { "id": 1601, "title": "React.memo", "url": "https://www.example.com/video31.mp4", "completed": false },
-        { "id": 1602, "title": "Lazy Loading Components", "url": "https://www.example.com/video32.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 17,
-      "title": "Using Webpack in React",
-      "subtopics": [
-        { "id": 1701, "title": "Setting Up Webpack for React", "url": "https://www.example.com/video33.mp4", "completed": false },
-        { "id": 1702, "title": "Optimizing Webpack Builds", "url": "https://www.example.com/video34.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 18,
-      "title": "React Native Basics",
-      "subtopics": [
-        { "id": 1801, "title": "Setting Up React Native", "url": "https://www.example.com/video35.mp4", "completed": false },
-        { "id": 1802, "title": "Building a Simple App", "url": "https://www.example.com/video36.mp4", "completed": false }
-      ]
-    },
-    {
-      "id": 19,
-      "title": "React and Testing with Jest",
-      "subtopics": [
-        { "id": 1901, "title": "Introduction to Jest", "url": "https://www.example.com/video37.mp4", "completed": false },
-        { "id": 1902, "title": "Writing Unit Tests with Jest", "url": "https://www.example.com/video38.mp4", "completed": false }
-      ]
-    },
-]
+export const syllabusdata = [
+  {
+    id: 1,
+    title: "Introduction to React",
+    description: "Learn the basics of React and how it can be used to build dynamic user interfaces.",
+    subtopics: [
+      { id: 101, title: "What is React?", url: "https://www.example.com/video1.mp4", completed: false, description: "Introduction to React and why it's a powerful JavaScript library for building user interfaces." },
+      { id: 102, title: "React Basics", url: "https://www.example.com/video2.mp4", completed: false, description: "Learn about JSX, components, and the core principles of React." }
+    ],
+    quiz: [
+      {
+        question: "What is React?",
+        options: ["A programming language", "A JavaScript library", "A CSS framework", "A design pattern"],
+        correctAnswer: "A JavaScript library",
+        explanation: "React is a JavaScript library for building user interfaces, developed by Facebook."
+      },
+      {
+        question: "What does JSX stand for in React?",
+        options: ["JavaScript XML", "JavaScript Extension", "JavaScript Exponential", "None of the above"],
+        correctAnswer: "JavaScript XML",
+        explanation: "JSX is a syntax extension for JavaScript that allows you to write HTML-like code in React components."
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Advanced React",
+    description: "Dive deeper into React with advanced concepts such as hooks, state management, and more.",
+    subtopics: [
+      { id: 201, title: "React Hooks", url: "https://www.example.com/video3.mp4", completed: false, description: "Learn about React hooks like useState, useEffect, and more to manage state and side effects." },
+      { id: 202, title: "Context API", url: "https://www.example.com/video4.mp4", completed: false, description: "Learn how to manage global state using React's Context API." }
+    ],
+    quiz: [
+      {
+        question: "What is the purpose of React hooks?",
+        options: ["To manage state", "To handle events", "To interact with the DOM", "All of the above"],
+        correctAnswer: "All of the above",
+        explanation: "React hooks like useState and useEffect are used to manage state, handle events, and interact with the DOM in functional components."
+      },
+      {
+        question: "What is the Context API used for in React?",
+        options: ["Managing local component state", "Managing global state", "Handling routing", "Styling components"],
+        correctAnswer: "Managing global state",
+        explanation: "The Context API is used for managing global state that can be accessed by any component in the component tree."
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "React Router",
+    description: "Learn how to handle routing and navigation in React applications.",
+    subtopics: [
+      { id: 301, title: "Setting up React Router", url: "https://www.example.com/video5.mp4", completed: false, description: "Learn how to set up React Router to enable client-side navigation in your React app." },
+      { id: 302, title: "Nested Routes", url: "https://www.example.com/video6.mp4", completed: false, description: "Understand how to create nested routes to manage complex layouts in your React application." }
+    ],
+    quiz: [
+      {
+        question: "What is React Router used for?",
+        options: ["Handling forms", "Client-side navigation", "Managing state", "Displaying data"],
+        correctAnswer: "Client-side navigation",
+        explanation: "React Router is a library used for handling client-side navigation in React applications."
+      },
+      {
+        question: "What are nested routes in React Router?",
+        options: ["Sub-routes inside a parent route", "Routes that handle nested data", "A type of component", "None of the above"],
+        correctAnswer: "Sub-routes inside a parent route",
+        explanation: "Nested routes are routes defined inside another route, allowing for complex layouts."
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "State Management in React",
+    description: "Learn how to manage and update state effectively in React apps.",
+    subtopics: [
+      { id: 401, title: "useState Hook", url: "https://www.example.com/video7.mp4", completed: false, description: "Learn the useState hook for managing state in functional components." },
+      { id: 402, title: "useReducer Hook", url: "https://www.example.com/video8.mp4", completed: false, description: "Understand the useReducer hook for more complex state logic." }
+    ],
+    quiz: [
+      {
+        question: "What is the useState hook used for?",
+        options: ["To manage local component state", "To perform side effects", "To handle events", "All of the above"],
+        correctAnswer: "To manage local component state",
+        explanation: "The useState hook allows you to manage and update the state in a functional component."
+      },
+      {
+        question: "What is useReducer used for in React?",
+        options: ["Managing simple state", "Managing complex state logic", "Handling events", "None of the above"],
+        correctAnswer: "Managing complex state logic",
+        explanation: "The useReducer hook is used for managing more complex state logic, especially when state transitions depend on previous state."
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Handling Forms in React",
+    description: "Learn how to create and manage forms in React applications.",
+    subtopics: [
+      { id: 501, title: "Controlled Components", url: "https://www.example.com/video9.mp4", completed: false, description: "Learn how to handle forms using controlled components in React." },
+      { id: 502, title: "Uncontrolled Components", url: "https://www.example.com/video10.mp4", completed: false, description: "Learn how to work with uncontrolled components for handling form inputs in React." }
+    ],
+    quiz: [
+      {
+        question: "What is a controlled component in React?",
+        options: ["A component that manages its own state", "A component where state is controlled by a parent", "A component that does not use state", "None of the above"],
+        correctAnswer: "A component where state is controlled by a parent",
+        explanation: "In a controlled component, form input elements are controlled by React state, and their value is passed from the parent."
+      },
+      {
+        question: "What is an uncontrolled component in React?",
+        options: ["A component that uses refs", "A component that does not use state", "A component that uses the Context API", "None of the above"],
+        correctAnswer: "A component that uses refs",
+        explanation: "An uncontrolled component does not store its state in React state; instead, it uses a ref to access the DOM directly."
+      }
+    ]
+  },
+  // Add similar quiz objects for all other topics and subtopics...
+];
+

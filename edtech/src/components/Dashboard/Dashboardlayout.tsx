@@ -18,13 +18,15 @@ const Dashboardlayout = ({children}:{children:React.ReactNode}) => {
     
 //   const breadcrumbs = ['Dashboard', 'Courses'];
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen bg-gray-200">
        <Dashboardnav/>
        <div className="flex">
         <Dashbardsidbar/>
-        <div className='overflow-y-auto h-[90vh] w-full custom-scroll'>
+        <div className='overflow-y-auto h-[90vh] w-full custom-scroll   '>
+            <div className="m-2 bg-white">
             <BasicBreadcrumbs breadcrumbs={pathArray} />
-            <div className="whole w-full">
+            </div>
+            <div className=" w-full">
             {children}
             </div>
 

@@ -10,7 +10,7 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 
 export default function BasicBreadcrumbs({ breadcrumbs }: { breadcrumbs: any }) {
   return (
-    <div role="presentation" onClick={handleClick} className='p-4'>
+    <div role="presentation" onClick={handleClick} className='p-2'>
       <Breadcrumbs aria-label="breadcrumb">
         {breadcrumbs.map((breadcrumb: any, index: number) => {
           if (index === breadcrumbs.length - 1) {
