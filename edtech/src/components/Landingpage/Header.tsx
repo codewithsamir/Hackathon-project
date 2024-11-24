@@ -1,9 +1,25 @@
-import Link from 'next/link';
-import React from 'react'
-import { CiSearch } from "react-icons/ci";
+'use client';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { CiSearch } from 'react-icons/ci';
 
 
 const Header = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <>
       
@@ -22,11 +38,15 @@ const Header = () => {
             </p>
 
             <div className="h-auto w-full lg:w-[600px] flex items-center justify-center">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full lg:w-[600px] h-10 p-4 rounded-l bg-white text-gray-700 shadow-md focus:outline-none focus:ring-2 focus:ring-red-500" 
-              />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Search..."
+              className="w-full lg:w-[600px] h-10 p-4 rounded-l bg-white text-gray-700 shadow-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            />
+          
               <button className='w-14 lg:w-20 bg-red-500 h-10 mr-4 lg:mr-10 z-10 rounded-r flex items-center justify-center'>
                 <CiSearch size={24} lg-size={40} color='white' />
               </button>
