@@ -1,16 +1,5 @@
 export  const questions = [
-    {
-      question: "What is the capital of France?",
-      options: ["Paris", "London", "Berlin", "Madrid"],
-      correctAnswer: "Paris",
-      explanation: "Paris is the capital city of France, known for landmarks like the Eiffel Tower.",
-    },
-    {
-      question: "What is 2 + 2?",
-      options: ["3", "4", "5", "6"],
-      correctAnswer: "4",
-      explanation: "Basic arithmetic: 2 + 2 equals 4.",
-    },
+   
     {
       question: "Which programming language is used for React?",
       options: ["Python", "JavaScript", "Ruby", "C#"],
