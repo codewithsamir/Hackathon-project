@@ -1,111 +1,82 @@
-import React from 'react';
-import {
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  Typography,
-  Avatar,
-  Button,
-  Breadcrumbs,
-  Link,
-  Box,
-  Divider,
-} from '@mui/material';
-import 'tailwindcss/tailwind.css';
-import Dashboardlayout from '@/components/Dashboard/Dashboardlayout';
+"use client";
+import React from "react";
+import Dashboardlayout from "@/components/Dashboard/Dashboardlayout";
 
 const ProfilePage = () => {
   return (
     <Dashboardlayout>
-    <Box className="w-full h-full ">
-      {/* Breadcrumb Navigation */}
-      {/* <Container maxWidth="lg" className="py-4">
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" href="/">
-            Home
-          </Link>
-          <Link underline="hover" color="inherit" href="/dashboard">
-            Dashboard
-          </Link>
-          <Typography color="text.primary">Profile</Typography>
-        </Breadcrumbs>
-      </Container> */}
+      <div className="w-full h-full bg-gray-100 p-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Profile Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Profile Overview */}
+            <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center">
+              <img
+                className="w-24 h-24 rounded-full object-cover"
+                src="/image.png"
+                alt="User Name"
+              />
+              <h2 className="text-xl font-semibold mt-4">User Name</h2>
+              <p className="text-gray-500 mt-2">user@example.com</p>
+              <p className="text-gray-500 mt-1">Member since: Jan 2022</p>
+              <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                Edit Profile
+              </button>
+            </div>
 
-      {/* Profile Section */}
-      <Container maxWidth="lg" className="py-8">
-        <Grid container spacing={4}>
-          {/* Profile Overview */}
-          <Grid item xs={12} md={4}>
-            <Card className="shadow-lg">
-              <CardContent className="flex flex-col items-center text-center">
-                <Avatar
-                  alt="User Name"
-                  src="https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFufDB8fDB8fHww"
-                  sx={{ width: 120, height: 120 }}
-                />
-                <Typography variant="h5" component="div" className="mt-4">
-                  User Name
-                </Typography>
-                <Typography variant="body2" color="text.secondary" className="mt-1">
-                  user@example.com
-                </Typography>
-                <Typography variant="body2" color="text.secondary" className="mt-1">
-                  Member since: Jan 2022
-                </Typography>
-                <Button variant="contained" color="primary" className="mt-4">
-                  Edit Profile
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-
-          {/* Account Settings and Progress */}
-          <Grid item xs={12} md={8}>
-            <Card className="shadow-lg">
-              <CardContent>
-                {/* Account Settings Section */}
-                <Typography variant="h6" component="div">
-                  Account Settings
-                </Typography>
-                <Divider className="my-2" />
-                <Typography variant="body2" color="text.secondary" className="mt-2">
+            {/* Account Settings and Progress */}
+            <div className="md:col-span-2 bg-white rounded-lg shadow p-6">
+              {/* Account Settings Section */}
+              <h2 className="text-lg font-semibold mb-4">Account Settings</h2>
+              <div className="border-t border-gray-200 pt-4">
+                <p className="text-gray-500 mb-4">
                   Manage your account settings and preferences below:
-                </Typography>
-                <Box className="flex flex-wrap mt-4">
-                  <Button variant="contained" color="primary" className="mr-4">
-                    Change Password
-                  </Button>
-               
-                </Box>
+                </p>
+                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                  Change Password
+                </button>
+              </div>
 
-                {/* Progress Section */}
-                <Typography variant="h6" component="div" className="mt-6">
-                  Learning Progress
-                </Typography>
-                <Divider className="my-2" />
-                <Typography variant="body2" color="text.secondary" className="mt-2">
+              {/* Progress Section */}
+              <h2 className="text-lg font-semibold mt-8 mb-4">Learning Progress</h2>
+              <div className="border-t border-gray-200 pt-4">
+                <p className="text-gray-500 mb-4">
                   Track your progress across enrolled courses:
-                </Typography>
-                <Box className="mt-4">
-                  <Typography variant="body1" className="mb-1">
-                    Data Science Bootcamp: <span className="font-bold">75% Complete</span>
-                  </Typography>
-                  <Typography variant="body1" className="mb-1">
-                    Web Development Mastery: <span className="font-bold">50% Complete</span>
-                  </Typography>
-                  <Typography variant="body1">
-                    AI Fundamentals: <span className="font-bold">30% Complete</span>
-                  </Typography>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-
-    
-    </Box>
+                </p>
+                <ul className="space-y-2">
+                  <li>
+                    <div className="flex justify-between">
+                      <span>Data Science Bootcamp</span>
+                      <span className="font-semibold">75% Complete</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "75%" }}></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="flex justify-between">
+                      <span>Web Development Mastery</span>
+                      <span className="font-semibold">50% Complete</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+                      <div className="bg-yellow-500 h-2 rounded-full" style={{ width: "50%" }}></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="flex justify-between">
+                      <span>AI Fundamentals</span>
+                      <span className="font-semibold">30% Complete</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+                      <div className="bg-red-500 h-2 rounded-full" style={{ width: "30%" }}></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Dashboardlayout>
   );
 };

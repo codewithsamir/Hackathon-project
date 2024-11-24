@@ -22,7 +22,7 @@ const Dashboardlayout = ({children}:{children:React.ReactNode}) => {
 const menuItems = [
   { path: "/Dashboard", label: "Dashboard", icon: <DashboardIcon /> },
   { path: "/Dashboard/courses", label: "Courses", icon: <SchoolIcon /> },
-  { path: "/Dashboard/mocktest", label: "Mock Test", icon: <AccountCircleIcon /> },
+  { path: "/Dashboard/Entrancetest", label: "Mock Test", icon: <AccountCircleIcon /> },
   { path: "/Dashboard/drivinglicencetest", label: "Driving Licence Test", icon: <AccountCircleIcon /> },
   { path: "/Dashboard/profile", label: "Profile", icon: <AccountCircleIcon /> },
 ];

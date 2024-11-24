@@ -28,12 +28,12 @@ const Features = () => {
         "Generate personalized reports showcasing strengths, weaknesses, and areas for improvement. Use visual analytics (charts and graphs) to track progress over time.",
       icon: MdAnalytics,
     },
-    {
-      title: "Interactive Tools",
-      description:
-        "Integrate live Q&A sessions, doubt-solving forums, or AI-based chatbots to assist with student queries. Set up discussion boards to promote peer learning and collaboration.",
-      icon: MdForum,
-    },
+    // {
+    //   title: "Interactive Tools",
+    //   description:
+    //     "Integrate live Q&A sessions, doubt-solving forums, or AI-based chatbots to assist with student queries. Set up discussion boards to promote peer learning and collaboration.",
+    //   icon: MdForum,
+    // },
   ];
 
   return (

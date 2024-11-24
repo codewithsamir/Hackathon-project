@@ -2,9 +2,10 @@ export const syllabusdata = [
   {
     id: 1,
     title: "Introduction to React",
+    image:"/course_webD.jpg",
     description: "Learn the basics of React and how it can be used to build dynamic user interfaces.",
     subtopics: [
-      { id: 101, title: "What is React?", url: "https://www.example.com/video1.mp4", completed: false, description: "Introduction to React and why it's a powerful JavaScript library for building user interfaces." },
+      { id: 101, title: "What is React?", url: "https://www.youtube.com/embed/QO5gOinKu1Q", completed: false, description: "Introduction to React and why it's a powerful JavaScript library for building user interfaces." },
       { id: 102, title: "React Basics", url: "https://www.example.com/video2.mp4", completed: false, description: "Learn about JSX, components, and the core principles of React." }
     ],
     quiz: [

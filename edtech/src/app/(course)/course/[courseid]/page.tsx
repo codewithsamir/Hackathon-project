@@ -39,20 +39,20 @@ const CourseDetail = ({params}:any) => {
       <p className="text-lg text-gray-700 mb-4">{course.description}</p>
 
       {/* Price */}
-      <p className="text-lg font-semibold text-green-600 mb-4">
+      {/* <p className="text-lg font-semibold text-green-600 mb-4">
         Price: ${course.price}
-      </p>
+      </p> */}
 
       {/* Syllabus */}
-      <h2 className="text-2xl font-semibold text-blue-600 mb-2">Syllabus</h2>
+      {/* <h2 className="text-2xl font-semibold text-blue-600 mb-2">Syllabus</h2>
       <Link
-        href={course.syllabus}
+        href={course.syl}
         target="_blank"
         rel="noopener noreferrer"
         className="text-blue-500 underline mb-4 block"
       >
         View Syllabus
-      </Link>
+      </Link> */}
 
       {/* Lessons */}
       <h2 className="text-2xl font-semibold text-blue-600 mb-2">Lessons</h2>

@@ -9,7 +9,7 @@ const BookList = () => {
     <div className="bg-gray-50 py-12">
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center mb-6">
-          <h2 className="text-3xl font-bold">Popular Courses Books</h2>
+          <h2 className="text-3xl font-bold"> Books</h2>
          
         </div>
         

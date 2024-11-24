@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { FaFacebook } from "react-icons/fa";
 
@@ -7,25 +8,26 @@ const Footer = () => {
       <div className="text-white flex flex-wrap md:flex-nowrap justify-start items-start gap-8 md:gap-20 bg-gradient-to-b from-black to-red-800 p-5 text-sm">
         {/* Logo */}
         <div className="w-full md:w-auto mx-5 md:mx-20 text-lg font-bold">
-         <img src="/skill1.png" alt="" />
+         {/* <img src="/skill1.png" alt="" /> */}
+         <h1 className='text-white text-2xl font-bold'>Digiskill</h1>
         
         </div>
 
         {/* Quick Links */}
         <div className="w-full md:w-auto flex flex-col space-y-2">
           <div className="font-semibold">Quick Links</div>
-          <a href="#" className="hover:text-red-400">
+          <Link href="#" className="hover:text-red-400">
             Home
-          </a>
-          <a href="#" className="hover:text-red-400">
+          </Link>
+          <Link href="#" className="hover:text-red-400">
             Courses
-          </a>
-          <a href="#" className="hover:text-red-400">
+          </Link>
+          <Link href="#" className="hover:text-red-400">
             Blog
-          </a>
-          <a href="#" className="hover:text-red-400">
+          </Link>
+          <Link href="#" className="hover:text-red-400">
             Contact Us
-          </a>
+          </Link>
         </div>
 
         {/* Contact Info */}

@@ -22,8 +22,12 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems }) => {
   const pathname = usePathname(); // Get the current path
 
   const isActive = (path: string) => {
-    // For dynamic matching of active paths
-    return pathname?.startsWith(path) ? "black" : "#000000a8"; // Highlight active link based on startsWith
+    // Use RegExp for stricter matching, especially for the "Dashboard" path
+    if (path === "/dashboard") {
+      return pathname?.startsWith("/dashboard") ? "black" : "#000000a8";
+    }
+    // General case for other paths
+    return pathname === path ? "black" : "#000000a8";
   };
 
   return (
