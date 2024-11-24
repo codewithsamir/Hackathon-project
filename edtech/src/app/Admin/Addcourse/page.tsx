@@ -11,6 +11,8 @@ const AddCourseForm = () => {
     instructor: "",
     thumbnail: null,
     video: null,
+    syllabus: "",
+    price: 0,
   });
 
   // Handle input changes for text fields
@@ -34,21 +36,46 @@ const AddCourseForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted with the following data:", formData);
-    // You can handle form submission logic here (e.g., send data to the backend)
-    alert("Course Added!");
-    // Reset form after submission
-    setFormData({
-      title: "",
-      description: "",
-      category: "",
-      duration: "",
-      instructor: "",
-      thumbnail: null,
-      video: null,
-    });
+
+    const formDataObj = new FormData();
+    formDataObj.append('title', formData.title);
+    formDataObj.append('description', formData.description);
+    formDataObj.append('category', formData.category);
+    formDataObj.append('duration', formData.duration);
+    formDataObj.append('instructor', formData.instructor);
+    formDataObj.append('syllabus', formData.syllabus);
+    formDataObj.append('price', formData.price.toString());
+    if (formData.thumbnail) formDataObj.append('thumbnail', formData.thumbnail);
+    if (formData.video) formDataObj.append('video', formData.video);
+
+    try {
+      const response = await fetch('/api/courses', {
+        method: 'POST',
+        body: formDataObj,
+      });
+
+      if (response.ok) {
+        alert('Course Added!');
+        setFormData({
+          title: "",
+          description: "",
+          category: "",
+          duration: "",
+          instructor: "",
+          thumbnail: null,
+          video: null,
+          syllabus: "",
+          price: 0,
+        });
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error}`);
+      }
+    } catch (error) {
+      alert(`Error: ${error.message}`);
+    }
   };
 
   return (
@@ -143,6 +170,40 @@ const AddCourseForm = () => {
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             placeholder="Enter instructor name"
+            required
+          />
+        </div>
+
+        {/* Syllabus */}
+        <div className="mb-4">
+          <label htmlFor="syllabus" className="block text-sm font-medium text-gray-700">
+            Syllabus
+          </label>
+          <textarea
+            id="syllabus"
+            name="syllabus"
+            value={formData.syllabus}
+            onChange={handleChange}
+            rows={4}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            placeholder="Enter syllabus details"
+            required
+          ></textarea>
+        </div>
+
+        {/* Price */}
+        <div className="mb-4">
+          <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+            Price (in dollars)
+          </label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            placeholder="Enter course price"
             required
           />
         </div>

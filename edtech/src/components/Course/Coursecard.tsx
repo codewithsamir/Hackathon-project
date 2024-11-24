@@ -9,7 +9,7 @@ const Coursecard = ({ course }: { course: any }) => {
     >
       <div className="image w-full h-[200px] overflow-hidden rounded-t-lg">
         <Image
-          src={course.image}
+          src={course.courseImageUrl}
           alt={course.title}
           width={300}
           height={200}
